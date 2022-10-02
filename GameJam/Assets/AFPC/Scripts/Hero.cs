@@ -20,6 +20,7 @@ public class Hero : MonoBehaviour {
 
     private float timer;
     public int item = 0;
+    [SerializeField] private GameObject bed;
 
     /* Optional assign the HUD */
     private void Awake () {
@@ -69,11 +70,6 @@ public class Hero : MonoBehaviour {
 
         /* Control the health and shield recovery */
         //lifecycle.Runtime();
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Time.timeScale = 1;
-        }
     }
 
     private void FixedUpdate () {
@@ -116,7 +112,7 @@ public class Hero : MonoBehaviour {
     {
         if (other.CompareTag("RadiationZone1"))
         {
-            if (timer >=  100)
+            if (timer >=  500)
             {
                 lifecycle.DamageFromRadiation(1);
                 timer = 0;
@@ -131,11 +127,27 @@ public class Hero : MonoBehaviour {
         {
             Destroy(other.gameObject);
             item += 1;
+            ProjectManager.instance.item = item;
         }
 
         if (other.CompareTag("NPC") && Input.GetKey(KeyCode.E))
         {
             Time.timeScale = 0;
+            bed.SetActive(true);
+            ProjectManager.instance.isDialog = true;
+        }
+
+        if (other.CompareTag("Bed") && Input.GetKey(KeyCode.E))
+        {
+            Time.timeScale = 0;
+            lifecycle.Heal(lifecycle.referenceHealth - lifecycle.GetHealthValue());
+            other.gameObject.SetActive(false);
+            ProjectManager.instance.isRest = true;
+        }
+
+        if (other.CompareTag("Elevator") && Input.GetKey(KeyCode.E) && !ProjectManager.instance.isElevatorActive)
+        {
+            ProjectManager.instance.isElevatorActive = true;
         }
     }
 }

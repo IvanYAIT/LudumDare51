@@ -344,11 +344,14 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/AFPC/Scripts/Elevator.cs"
 "Assets/AFPC/Scripts/Hero.cs"
 "Assets/AFPC/Scripts/HUD.cs"
 "Assets/AFPC/Scripts/Lifecycle.cs"
 "Assets/AFPC/Scripts/Movement.cs"
+"Assets/AFPC/Scripts/NPCDialog.cs"
 "Assets/AFPC/Scripts/Overview.cs"
+"Assets/AFPC/Scripts/ProjectManager.cs"
 -langversion:9.0
 
 /deterministic

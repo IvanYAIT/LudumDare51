@@ -7,6 +7,9 @@ TagManager:
   - RadiationZone1
   - Item
   - NPC
+  - Bed
+  - Elevator
+  - ElevatorStop
   layers:
   - Default
   - TransparentFX
